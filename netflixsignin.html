@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<style>
+
+			body
+			{
+				background-color: black;
+			}
+			div
+			{
+				background-color: red;
+			}
+
+			.main
+			{
+				width: 500px;
+				height: 750px;
+				background-color: black;
+				position: absolute;
+				top: 20%;
+				left: 39%;
+				right:45%;
+				margin: -25px 0 0 -25px;
+				border: solid red 1px;
+				font-family: dedote;
+			}
+			
+			.signinbutton 
+    		{
+				background-color: red;
+				border: none;
+				border-radius: 3px;
+				color: white;
+				/**padding: 10px 10px 10px 10px;*/
+				text-decoration: none;
+				display: inline-block;
+				font-size: 40px;
+				margin:0px 10px;
+				cursor: pointer;
+				width:450px;
+				height:50px;
+			}
+
+			.textbox
+			{
+				background-color: red;
+				border: none;
+				border-radius: 1px;
+				color: red;
+				padding: 2px 2px 2px 10px;
+				text-align: left;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 30px;
+				margin: 10px 12px;
+				cursor: pointer;
+				width:450px;
+			}
+
+			.password
+			{
+				background-color: red;
+				border: none;
+				border-radius: 1px;
+				color: red;
+				padding: 2px 2px 2px 10px;
+				text-align: left;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 30px;
+				margin: 10px 12px;
+				cursor: pointer;
+				width:450px;
+			}
+
+			input[type=text] 
+			{
+				background-color: white;
+				border: none;
+				border-radius: 1px;
+				color: red;
+				/**padding: 2px 2px 2px 10px;*/
+				text-align: left;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 30px;
+				/**margin: 4px 2px;*/
+				cursor: pointer;
+				width:446px;
+			}
+
+			input[type=password] 
+			{
+				background-color: white;
+				border: none;
+				border-radius: 1px;
+				color: red;
+				/**padding: 2px 2px 2px 10px;*/
+				text-align: left;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 30px;
+				/**margin: 4px 2px;*/
+				cursor: pointer;
+				width:446px;
+			}
+
+			p1
+    		{
+    			color:red;
+    			font-size:70px;
+    			text-align: left;
+    			margin-left:10px;
+    			margin-top: 10px;
+    		}
+
+    		p2
+    		{
+    			color:red;
+    			font-size:40px;
+    			text-align: left;
+    			margin-left: 10px;
+    		}
+		</style>
+		<script>
+            function validateForm() 
+            {
+                var p1 = document.forms["myForm"]["p1"].value;
+                var p2 = document.forms["myForm"]["p2"].value;
+
+                if(p1.length<8)
+                {
+                    alert("Password is not long enough!!!");
+                    return false
+                }
+                f1=false
+                f2=false
+                f3=false
+                f4=false
+                for(i=0;i<p1.length;i++){
+                    if(p1[i]>='A' && p1[i]<='Z') f1=true;
+                    else if(p1[i]>='a' && p1[i]<='z') f2=true;
+                    else if(p1[i]>='0' && p1[i]<='9') f3=true;
+                    else f4=true;
+                }
+                console.log(f1,f2,f3);
+                if(!(f1&&f2&&f3)){
+                    alert("Password must contain numbers and capital and small characters!!!");
+                    return false
+                }
+                if(p2!=p1){
+                    alert("Confirm Password is not matching to Password!!!");
+                    return false
+                }
+                return true
+            }
+        </script>
+	</head>
+
+	<body>
+		<dr/>
+		<img src="netflixlogo.jpg" alt="logo" align="center" height="180px" width="320px";>
+		<dr/>
+		<form name="myForm" action="netflixgetstarted.html" onsubmit="return validateForm()" >
+		<div class="main">
+			
+				<p1> Sign In</p1>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<p2> Email</p2>
+				<br/>
+				<div class="textbox"> 
+	                    <input type="text" name="EmailId" value="@gmail.com" required>
+	            </div>
+	            <br/>
+	            <br/>
+	            <br/>
+	            <p2> Password</p2>
+				<br/>
+				<div class="password"> 
+	                    <input type="Password" name="p1" value="" required>
+	            </div>
+
+				<br/>
+	            <br/>
+	            <br/>
+	            <p2> Repeat Password</p2>
+				<br/>
+				<div class="password"> 
+	                    <input type="Password" name="p2" value="" required>
+	            </div>
+
+	            <br/>
+	            <br/>
+	            <br/>
+				<input type="submit" class="signinbutton" value="Sign in">
+				<br/>
+			
+		</div>
+		</form>
+	</body>
+</html>
